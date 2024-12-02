@@ -1,32 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
-    char side_a [3], side_b [3], side_c [3];
-    int a, b, c;
+int main() {
+    char input[100];
+    int sideA, sideB, sideC;
 
-    printf("Enter lenghth of side A: ");
-    fgets(side_a, 3, stdin);
-    printf("Enter lenghth of side B: ");
-    fgets(side_b, 3, stdin);
-    printf("Enter lenghth of side C: ");
-    fgets(side_c, 3, stdin);
+    printf("Enter length of side A: ");
+    fgets(input, 100, stdin);
+    sideA = atoi(input); 
 
-    a = atoi(side_a);
-    b = atoi(side_b);
-    c = atoi(side_c);
+    printf("Enter length of side B: ");
+    fgets(input, 100, stdin);
+    sideB = atoi(input); 
 
-    if (a <= 0 || b <= 0 || c <= 0 || a + b <= c || b + c <= a || c + a <= b) {
-        printf("Triangle type is invalid.");
+    printf("Enter length of side C: ");
+    fgets(input, 100, stdin);
+    sideC = atoi(input); 
+
+    if (sideA <= 0 || sideB <= 0 || sideC <= 0) {
+        printf("Triangle type is invalid.\n");
     }
-    else if (a == b && b == c) {
-        printf("Triangle type is equilateral.");
+    else if (sideA + sideB <= sideC || sideA + sideC <= sideB || sideB + sideC <= sideA) {
+        printf("Triangle type is invalid.\n");
     }
-    else if (a == b || b == c || a == c) {
-        printf("Triangle type is isosceles.");
+    else if (sideA == sideB && sideB == sideC) {
+        printf("Triangle type is equilateral.\n");
     }
-    else if (a != b && b != c && a != c) {
-        printf("Triangle type is scalene");
+    else if (sideA == sideB || sideA == sideC || sideB == sideC) {
+        printf("Triangle type is isosceles.\n");
     }
+    else {
+        printf("Triangle type is scalene.\n");
+    }
+
     return 0;
 }
