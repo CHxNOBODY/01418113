@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 int main(){
-    char input_sticker[100], input_price[100];
+    char input_sticker[10], input_price[10];
     int sticker, sticker_remain;
     double price, discount = 0.0, total;
 
-    fgets(input_sticker, 100, stdin);
+    fgets(input_sticker, 10, stdin);
     sticker = atoi(input_sticker);
 
-    fgets(input_price, 100, stdin);
-    price = atoi(input_price);
+    fgets(input_price, 10, stdin);
+    price = atof(input_price);
 
     if (sticker >= 9) {
         discount = 40.0;
@@ -24,11 +24,11 @@ int main(){
         discount = 20.0;
         sticker_remain = sticker - 3;
     }
-    else if (sticker >= 2) {
+    else if (sticker == 2) {
         discount = 15.0;
         sticker_remain = sticker - 2;
     }
-    else if (sticker >= 1){
+    else if (sticker == 1){
         discount = 10.0;
         sticker_remain = sticker - 1;
     }
