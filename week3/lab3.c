@@ -3,23 +3,30 @@
 
 int main() {
     char num1_input[100], num2_input[100];
-    long long num1, num2;
+    long long num1, num2, gcd, numerator, denominator;
 
     fgets(num1_input, 100, stdin);
     fgets(num2_input, 100, stdin);
 
-    num1 = atoll(num1_input);
-    num2 = atoll(num2_input);
+    numerator = atoll(num1_input); 
+    denominator = atoll(num2_input); 
 
-    while (num2 != 0) {
-        long long remainder = num1 % num2;
-        num1 = num2;
-        num2 = remainder;
+    long long a = numerator, b = denominator;
+    while (b != 0) {
+        long long remainder = a % b;
+        a = b;
+        b = remainder;
     }
-    
-    if ()
-    {
-        /* code */
+    gcd = a;
+
+    numerator /= gcd;
+    denominator /= gcd;
+
+    if (denominator == 1) {
+        printf("= %lld\n", numerator); 
+    } else {
+        printf("= %lld/%lld\n", numerator, denominator); 
     }
-    
+
+    return 0;
 }
