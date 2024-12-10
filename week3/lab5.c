@@ -10,6 +10,7 @@ int main() {
 
     if (n <= 0 || n > 26) { //check n
         printf("-\n");
+        return 0;
     }
 
     for (int i = n - 1; i >= 0; i--){ //mid to left
