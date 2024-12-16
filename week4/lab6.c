@@ -2,32 +2,27 @@
 #include <stdlib.h>
 
 int main() {
-    char input_goal[20], input_collect[20];
-    float goal, collect;
-    int day;
+    char input_goal[20], input_today[20];
+    float goal, collect = 0.0, today;
+    int day = 0;
 
     printf("Enter your goal amount: ");
     fgets(input_goal, 20, stdin);
-    
+    goal = atof(input_goal); 
 
-    while (1) {
+    while (collect < goal) {
         printf("Enter money collected today: ");
-        fgets(input_collect, 20, stdin);
+        fgets(input_today, 20, stdin);
+        today = atof(input_today); 
 
-        goal = atoi(input_goal);
-        collect = atoi(input_collect);
+        collect += today; 
+        day++; 
 
-        collect++;
-
-        float remain = goal - collect;
-
-        day++;
-
-        printf("Total money collected up to day %d is %.2f You need %.2f more.\n", day, collect, remain);
-
-        if (remain == goal) {
+        if (collect >= goal) {
             printf("Congratulations! You take %d days to reach your goal.\n", day);
             break;
+        } else {
+            printf("Total money collected up to day %d is %.2f. You need %.2f more.\n", day, collect, goal - collect);
         }
     }
 
